@@ -3,6 +3,21 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { MongoClient } = require('mongodb');
 
+const username = encodeURIComponent('B022110099@student.utem.edu.my');
+const password = encodeURIComponent('KwonJiYong183!');
+const uri = `mongodb://${username}:${password}@_mongodb._tcp.wany.ccwpslo.mongodb.net:27017/VisitorManagementSystem`;
+
+const client = new MongoClient(uri);
+
+client.connect(err => {
+    if (err) {
+        console.error('Error connecting to MongoDB:', err);
+    } else {
+        console.log('Connected to MongoDB');
+    }
+});
+
+
 
 const app = express();
 const port = 3000;
